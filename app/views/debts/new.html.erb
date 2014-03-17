@@ -1,0 +1,9 @@
+<h2>Create new debt</h2>
+
+<%= form_for(@debt) do |d| %>
+    from: <%= d.select :user_id, options_from_collection_for_select(@users, :id, :name) %><br>
+    to whom:<%= d.select :receiver_id, options_from_collection_for_select(@users, :id, :name) %><br>
+    message: <%= d.text_field :description,  %><br>
+    amount: <%= d.number_field :amount %><br>
+    <%= d.submit %>
+<% end %>

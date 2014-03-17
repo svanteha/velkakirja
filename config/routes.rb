@@ -7,6 +7,12 @@ Velkakirja::Application.routes.draw do
 
   get 'debts', to: 'debts#index'
 
+  get 'debts/new', to: 'debts#new'
+
+  post 'debts', to: 'debts#create'
+
+  resources :debts, only: [:index, :new, :create, :destroy]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
