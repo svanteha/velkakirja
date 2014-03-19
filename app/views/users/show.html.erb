@@ -12,3 +12,10 @@
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
+
+
+<% if @user.debts.empty? %>
+    <p>no debts </p>
+<% else %>
+    <p>Has <%= pluralize(@user.debts.count,'debt') %>, total <%= @debts.where(:receiver_id => @user.id).sum(:amount) %> </p>
+<% end %>
